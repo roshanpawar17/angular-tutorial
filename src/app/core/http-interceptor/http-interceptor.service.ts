@@ -24,13 +24,14 @@ export class HttpInterceptorService implements HttpInterceptor{
     }else{
       const hostName = location.host;
       if(hostName.startsWith("localhost")){
-        headers = req.headers.set("domain", domain);
+        // headers = req.headers.set("domain", domain);
+        headers = req.headers.set('Content-Type', 'application/json');
         console.log("headers ", headers);
       }
     }
 
     let securedReq = req.clone({
-      withCredentials: true,
+      // withCredentials: true,
       url: finalUrl,
       headers: headers
     }); 
