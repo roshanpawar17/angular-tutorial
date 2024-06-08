@@ -1,4 +1,4 @@
-import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
+import { HttpErrorResponse, HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap, throwError } from 'rxjs';
 import { Environment } from 'src/environment/environment';
@@ -13,20 +13,30 @@ export class HttpInterceptorService implements HttpInterceptor{
     let base_url = Environment.BACKEND_URL;
     let currentToken = "ueudjdhsftwywjws";
     let finalUrl = "";
-    let headers;
+    // let headers;
 
     finalUrl = base_url + req.url;
     console.log("req url ", req.url);
     console.log("finalUrl ", finalUrl);
 
+    let headers = new HttpHeaders();
+
     if(finalUrl.startsWith("http://wmaster")){
-      headers = req.headers.set("Authorization", 'Bearer ' + currentToken);
+      // headers = req.headers.set("Authorization", 'Bearer ' + currentToken);
+      headers.append("Authorization", 'Bearer ' + currentToken);
     }else{
       const hostName = location.host;
       if(hostName.startsWith("localhost")){
         // headers = req.headers.set("domain", domain);
-        headers = req.headers.set('Content-Type', 'application/json');
-        console.log("headers ", headers);
+        // headers = req.headers.set('Content-Type', 'application/json');
+        console.log("req.method ", req.method);
+        console.log("req.headers ", req.headers);
+        if(req.method !== 'JSONP'){
+          headers = headers.append('Content-Type', 'application/json'); 
+          // headers = headers.append("Access-Control-Allow-Origin", "*")
+          // headers = headers.append('Accept', 'application/json');
+          console.log("headers ", headers);          
+        }
       }
     }
 
