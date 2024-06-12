@@ -1,0 +1,11 @@
+<p>users works!</p>
+<div *ngIf="!notFound">
+    <p>id : {{ id }}</p>
+    <p>name : {{ name }}</p>
+    <p>Page : {{ page }}</p>
+    <p>Search : {{ search }}</p>
+</div>
+
+<div *ngIf="notFound">
+    Not Found User
+</div>

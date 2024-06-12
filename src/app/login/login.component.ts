@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { LoginService } from './login.service';
 import { map } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,8 @@ import { map } from 'rxjs';
 export class LoginComponent {
 
   constructor(
-    @Inject(LoginService) private loginService: LoginService
+    @Inject(LoginService) private loginService: LoginService,
+    private router: Router
   ) { }
 
   httpClientMethods() {
@@ -125,5 +127,10 @@ export class LoginComponent {
     // });
 
 
+    
+    }
+    
+  navigateToAdmin(){
+    this.router.navigate(['/admin']);
   }
 }

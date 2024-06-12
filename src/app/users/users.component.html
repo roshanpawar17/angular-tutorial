@@ -1,0 +1,22 @@
+<ng-template ngFor let-user [ngForOf]="users">
+    <li>
+      <a 
+        [routerLink]="['/users', user.id, user.name]"
+        [queryParams]="{ 'page': user.queryParams.page, 'search': user.queryParams.search}"
+        [fragment]="'load'"
+      >
+        {{user.name}}
+      </a>
+      &nbsp;&nbsp;
+      <button (click)="onEditUser(user)">Edit User</button>
+    </li>
+</ng-template>
+
+<br>
+
+<button (click)="getUsersQueryParamsAndFragments()">Another Users Details using button</button>
+<br><br>
+
+<div>
+    <router-outlet></router-outlet>
+</div>

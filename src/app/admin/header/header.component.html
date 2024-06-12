@@ -1,1 +1,12 @@
-<p>header works!</p>
+<style>
+    .link-container{
+        display: flex;
+        gap: 20px;
+    }
+
+</style>
+
+<div class="link-container">
+    <a routerLink="/admin/home" routerLinkActive="active">Home</a>
+    <a [routerLink]="['/admin/about']" routerLinkActive="active">About</a>
+</div>
