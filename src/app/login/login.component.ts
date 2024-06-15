@@ -133,4 +133,17 @@ export class LoginComponent {
   navigateToAdmin(){
     this.router.navigate(['/admin']);
   }
+
+  user = 'user';
+  admin = 'admin';
+
+  login(role: any){
+    if(role === 'user'){
+      localStorage.setItem('loginuser', 'normaluser');
+      this.router.navigate(['/users']);
+    }else if(role === 'admin'){
+      localStorage.setItem('loginuser', 'admin');
+      this.router.navigate(['/admin']);
+    }
+  }
 }

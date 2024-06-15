@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpInterceptorService } from './http-interceptor/http-interceptor.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { NotFoundComponent } from './not-found/not-found.component'
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
