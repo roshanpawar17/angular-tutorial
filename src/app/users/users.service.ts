@@ -47,4 +47,10 @@ export class UsersService {
     ])
   }
 
+  getUsersParams(id: number, name: string){
+      return {
+        id: id,
+        name: name
+      }
+  }    
 }
