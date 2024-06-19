@@ -1,0 +1,13 @@
+.container{
+    width: 48vw;
+    border: 1px solid
+}
+
+.text-area{
+    // width: auto;
+    //         min-height: 20%;
+    word-break: break-all;
+            resize: none; /* Prevent manual resizing */
+            overflow: hidden; /* Hide scrollbars */
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+}

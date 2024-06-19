@@ -1,0 +1,10 @@
+
+<form [formGroup]="reactiveFormGroup" (ngSubmit)="onSubmit()">
+    <input type="text" formControlName="userName">
+    <small *ngIf="reactiveFormGroup.get('userName')?.hasError('required')">Please enter value</small>
+    <br>
+    <button type="submit" [disabled]="!reactiveFormGroup.get('userName')?.valid">Submit</button>
+</form>
+<div class="container">
+    <textarea (keyup)="onChange($event)" class="text-area"></textarea>
+</div>
