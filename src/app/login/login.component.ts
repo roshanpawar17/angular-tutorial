@@ -146,4 +146,8 @@ export class LoginComponent {
       this.router.navigate(['/admin']);
     }
   }
+
+  goToEsd(){
+    this.router.navigate(['esd'])
+  }
 }

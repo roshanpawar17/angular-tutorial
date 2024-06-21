@@ -22,6 +22,10 @@ const routes: Routes = [
     loadChildren: ()=> import("./admin/admin.module").then(m=>m.AdminModule)
   },
   {
+    path: 'esd',
+    loadChildren: ()=> import("./esd/esd.module").then(m=>m.EsdModule)
+  },
+  {
     path: '**',
     component: NotFoundComponent
   }
